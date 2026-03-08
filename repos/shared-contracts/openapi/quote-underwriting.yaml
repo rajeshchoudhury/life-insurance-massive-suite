@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: Quote & Underwriting API
+  version: 0.1.0
+paths:
+  /api/v1/quotes:
+    post:
+      summary: Generate a quote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+      responses:
+        '201':
+          description: Quote generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+components:
+  schemas:
+    QuoteRequest:
+      type: object
+      required: [productType, faceAmount, age, state, tobaccoUse, gender]
+      properties:
+        productType: { type: string, example: TERM }
+        faceAmount: { type: number, format: double, example: 500000 }
+        age: { type: integer, example: 35 }
+        state: { type: string, example: TX }
+        tobaccoUse: { type: string, example: NO }
+        gender: { type: string, example: M }
+    QuoteResponse:
+      type: object
+      properties:
+        quoteId: { type: string, format: uuid }
+        monthlyPremium: { type: number, format: double }
+        rateClass: { type: string }
+        productType: { type: string }
+        createdAt: { type: string, format: date-time }

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EventEnvelope",
+  "type": "object",
+  "required": ["id", "type", "occurredAt", "source", "data"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "type": { "type": "string" },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "source": { "type": "string" },
+    "data": { "type": "object" },
+    "trace": { "type": "object" }
+  }
+}

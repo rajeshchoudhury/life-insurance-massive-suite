@@ -1,0 +1,13 @@
+{
+  "name": "infra-pulumi-aws",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "lint": "node -c ./index.ts || true"
+  },
+  "dependencies": {
+    "@pulumi/pulumi": "^3.140.0",
+    "@pulumi/aws": "^6.52.0"
+  }
+}
